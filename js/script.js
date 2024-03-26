@@ -10,6 +10,8 @@ sendBtn.addEventListener("click", function() {
     // console.log("funziono")
 
     //? raccolta dati
+    const userName = document.querySelector("#user-name").value; //*object | null
+
     const kmInput = document.querySelector("#km-todo"); //* object | null
     // console.log(kmInput);
 
@@ -22,7 +24,7 @@ sendBtn.addEventListener("click", function() {
     const ageInputValue = parseInt(ageInput.value); //* number
     console.log("il passeggero ha " + ageInputValue + " anni");
 
-    if (!isNaN(kmInputValue) && !isNaN(ageInput) && kmInputValue > 0 && ageInputValue > 0) {
+    if (!isNaN(kmInputValue) && !isNaN(ageInputValue) && kmInputValue > 0 && ageInputValue > 0) {
         //? calcolo biglietto intero
         const price = kmCost * kmInputValue; //* number
         console.log("il prezzo del biglietto è di € " + price);
@@ -36,13 +38,28 @@ sendBtn.addEventListener("click", function() {
             discount = 40;
         }
 
-        const totalDiscount = (price * discount) / 100 //* number
+        let totalDiscount = (price * discount) / 100 //* number
+        if (discount === 0) {
+            totalDiscount = "nessuno"
+        }
         console.log("ha diritto ad uno scnto di € " + totalDiscount);
 
         //? prezzo finale
-        const finalPrice = price - totalDiscount //* number
+        let finalPrice = price - totalDiscount //* number
+        if (isNaN(totalDiscount)) {
+            finalPrice = price
+        }
         console.log("il totale compreso di sconto è di € " + finalPrice);
+
+        //! OUTPUT
+        document.getElementById("ticketname").innerHTML = `${userName}`
+        document.getElementById("ticketage").innerHTML = `${ageInputValue}`
+        document.getElementById("ticketprice").innerHTML = `${price.toFixed(2)} €`
+        document.getElementById("ticketdiscount").innerHTML = `${totalDiscount} €`
+        document.getElementById("ticketfinalprice").innerHTML = `${finalPrice.toFixed(2)} €`
+
     } else {
         alert("DATI ERRATI, INSERIRE DEI DATI VALIDI!")
     }
+
 })
