@@ -14,13 +14,13 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
 
 # INPUT
-- [ ] Il numero di chilometri da percorrere
-- [ ] Età del passeggero
+- [x] Il numero di chilometri da percorrere
+- [x] Età del passeggero
 
 # LOGICA
-- [ ] il prezzo del biglietto è definito in base ai km (0.21€ al km)
-- [ ] va applicato uno sconto del 20% per i minorenni
-- [ ] va applicato uno sconto del 40% per gli over 65.
+- [x] il prezzo del biglietto è definito in base ai km (0.21€ al km)
+- [x] va applicato uno sconto del 20% per i minorenni
+- [x] va applicato uno sconto del 40% per gli over 65.
 
 # OUTPUT
-- [ ] stampare prezzo finale
+- [x] stampare prezzo finale

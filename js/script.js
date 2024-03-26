@@ -1,7 +1,4 @@
 // !VARIABILI
-
-const sconto20 = 0.8;
-const sconto40 = 0.6;
 const kmCost = 0.21;
 
 //? page button
@@ -16,12 +13,32 @@ sendBtn.addEventListener("click", function() {
     const kmInput = document.querySelector("#km-todo"); //* object | null
     // console.log(kmInput);
 
-    const kmInputValue = kmInput.value; //* string
-    console.log(kmInputValue);
+    const kmInputValue = parseInt(kmInput.value); //* number
+    console.log("il passeggero deve percorrere " + kmInputValue + " km");
 
     const ageInput = document.querySelector("#user-age");
     // console.log(ageInput);
 
-    const ageInputValue = ageInput.value; //* string
-    console.log(ageInputValue);
+    const ageInputValue = parseInt(ageInput.value); //* number
+    console.log("il passeggero ha " + ageInputValue + " anni");
+
+    //? calcolo biglietto intero
+    const price = kmCost * kmInputValue; //* number
+    console.log("il prezzo del biglietto è di € " + price);
+
+    //? condizione discount
+    let discount = 0; //* number
+
+    if (ageInputValue < 18) {
+        discount = 20;
+    } else if (ageInputValue > 65) {
+        discount = 40;
+    }
+
+    const totalDiscount = (price * discount) / 100 //* number
+    console.log("ha diritto ad uno scnto di € " + totalDiscount);
+
+    //? prezzo finale
+    const finalPrice = price - totalDiscount //* number
+    console.log("il totale compreso di sconto è di € " + finalPrice);
 })
