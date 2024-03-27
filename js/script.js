@@ -55,7 +55,13 @@ sendBtn.addEventListener("click", function() {
         document.getElementById("ticketname").innerHTML = `${userName}`
         document.getElementById("ticketage").innerHTML = `${ageInputValue}`
         document.getElementById("ticketprice").innerHTML = `${price.toFixed(2)} €`
-        document.getElementById("ticketdiscount").innerHTML = `${totalDiscount} €`
+        
+        if (totalDiscount === "nessuno") {
+            document.getElementById("ticketdiscount").innerHTML = `${totalDiscount}`
+        } else {
+            document.getElementById("ticketdiscount").innerHTML = `${totalDiscount} €`
+        }
+
         document.getElementById("ticketfinalprice").innerHTML = `${finalPrice.toFixed(2)} €`
 
     } else {
